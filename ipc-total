@@ -1,0 +1,14 @@
+#!/bin/awk -f
+BEGIN	{
+	}
+/^0x/	{
+		sum += ($5 + 0)
+	}
+	{
+		print
+	}
+END	{
+		printf( "%29s%20d%s\n", "Total", sum,                    ""   )
+		printf( "%29s%20.2f%s\n", "Total", sum / (1024*1024),      "MB" )
+		printf( "%29s%20.2f%s\n", "Total", sum / (1024*1024*1024), "GB" )
+	}
